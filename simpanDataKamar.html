@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form Tambah Data Kamar</title>
+    </head>
+    <body>
+    <h2>Tambah Data Kamar</h2>
+    <form id="formDataKamar">
+        <label for="idKamar">Id Kamar:</label>
+        <input type="text" id="idKamar" name="idKamar" required><br><br>
+
+        <label for="gambar">Gambar Ruangan:</label>
+        <input type="file" id="gambar" name="gambar" accept="image/*" required><br><br>
+
+        <label for="jenisKamar">Jenis Kamar:</label>
+        <select id="jenisKamar" name="jenisKamar" required>
+            <option value="">--Pilih Jenis Kamar--</option>
+            <option value="Standar">Standar</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Family">Family</option>
+        </select><br><br>
+        
+        <label for="hargaKamar">Harga Kamar:</label>
+        <input type="number" id="hargaKamar" name="hargaKamar" required><br><br>
+
+        <label for="fasilitasKamar">Fasilitas Kamar:</label><br>
+        <textarea id="fasilitasKamar" name="fasilitasKamar" rows="4" cols="50" placeholder="Masukkan fasilitas kamar, contoh: WiFi, AC, TV" required></textarea><br><br>
+
+        <button type="button" onclick="simpanDataKamar()">Simpan Data Kamar</button>
+    </form>
+    <h2>Data Kamar Tersimpan</h2>
+    <div id="tampilanDataKamar">
+        <p>Belum ada data kamar yang disimpan.</p>
+    </div>
+
+    <script>
+        function simpanDataKamar() {
+            // Ambil data dari form
+            const idKamar = document.getElementById("idKamar").value;
+            const jenisKamar = document.getElementById("jenisKamar").value;
+            const hargaKamar = document.getElementById("hargaKamar").value;
+            const fasilitasKamar = document.getElementById("fasilitasKamar").value;
+            const gambarInput = document.getElementById("gambar");
+            const gambarFile = gambarInput.files[0];
+
+            // Validasi apakah semua data sudah diisi
+            if (!idKamar || !jenisKamar || !hargaKamar || !fasilitasKamar || !gambarFile) {
+                alert("Semua data harus diisi!");
+                return;
+            }
+
+            // Buat URL untuk menampilkan gambar yang diunggah
+            const gambarURL = URL.createObjectURL(gambarFile);
+
+            // Tampilkan data yang disimpan di div tampilanDataKamar
+            const tampilanDataKamar = document.getElementById("tampilanDataKamar");
+            tampilanDataKamar.innerHTML = `
+                <p><strong>ID Kamar:</strong> ${idKamar}</p>
+                <p><strong>Jenis Kamar:</strong> ${jenisKamar}</p>
+                <p><strong>Harga:</strong> Rp ${hargaKamar}</p>
+                <p><strong>Fasilitas:</strong> ${fasilitasKamar}</p>
+                <p><strong>Gambar Ruangan:</strong></p>
+                <img src="${gambarURL}" alt="Gambar Kamar" width="200"><br><br>
+            `;
+            // Reset form setelah menyimpan data
+            document.getElementById("formDataKamar").reset();
+        }
+    </script>
+    </body>
+</html>

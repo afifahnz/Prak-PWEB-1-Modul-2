@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Tambah Data Kamar</title>
+</head>
+<body>
+    <h1>Tambah Data Kamar</h1>
+    <form id="formDataKamar">
+        <table border="0">
+            <tr>
+                <td><label for="idKamar">ID Kamar</label></td> 
+                <td><input type="number" id="idkamar" name="idkamar" required /></td>
+            </tr>
+            <tr>
+                <td><label for="gambar">Gambar Ruangan</label></td>
+                <td><input type="file" id="gambar" name="gambar" accept="image/*" required /></td>
+            </tr>
+            <tr>
+                <td><label for="jenisKamar">Jenis Kamar</label></td>
+                <td>
+                    <select id="jenisKamar" name="jenisKamar" required>
+                        <option value="">--Pilih--</option>
+                        <option value="standar">STANDAR</option>
+                        <option value="deluxe">DELUXE</option>
+                        <option value="family">FAMILY</option>
+                    </select>
+                </td>
+            </tr>
+            <td><label for="harga">Harga</label></td> 
+                <td><input type="number" id="harga" name="harga" required /></td> 
+            </tr>
+            <tr>
+                <td><label for="fasilitaskamar">Fasilitas Kamar</label></td> 
+                <td><textarea id="fasilitasKamar" name="fasilitasKamar" rows="4" cols="50" 
+                    placeholder="Masukkan fasilitas kamar, contoh: WiFi, AC, TV" required></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="button" onclick="simpanData()" style="background-color: #007bff; 
+                    color: white; border: none;">Simpan Data</button>
+                    <button type="reset" style="background-color:red; 
+                    color: white; border: none;">Batal</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <p id="pesanSimpan" style="color: green; font-weight: bold; display: none;">Data telah disimpan</p>
+
+        <script>
+            function simpanData() {
+                // Menampilkan pesan setelah klik tombol simpan
+                document.getElementById("pesanSimpan").style.display = "block";
+                
+                // Reset form setelah simpan
+                document.getElementById("formPemesanan").reset();
+                
+                // Menghilangkan pesan setelah beberapa detik
+                setTimeout(() => {
+                    document.getElementById("pesanSimpan").style.display = "none";
+                }, 3000);
+            }
+        </script>
+    </body>
+</html>

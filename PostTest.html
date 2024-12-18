@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tambah Data Nilai Mata Kuliah</title>
+</head>
+<body>
+    <h2>Form Tambah Data Nilai Mata Kuliah</h2>
+    <form action="proses_nilai.php" method="POST">
+        <!-- Nama Mata Kuliah -->
+        <label for="matakuliah">Nama Mata Kuliah:</label><br>
+        <input type="text" id="matakuliah" name="matakuliah" placeholder="Masukkan nama mata kuliah" required><br><br>
+        
+        <!-- Nama Dosen -->
+        <label for="dosen">Nama Dosen:</label><br>
+        <input type="text" id="dosen" name="dosen" placeholder="Masukkan nama dosen" required><br><br>
+        
+        <!-- SKS -->
+        <label for="sks">SKS:</label><br>
+        <input type="number" id="sks" name="sks" min="1" placeholder="Masukkan jumlah SKS" required><br><br>
+        
+        <!-- Nama Mahasiswa -->
+        <label for="mahasiswa">Nama Mahasiswa:</label><br>
+        <input type="text" id="mahasiswa" name="mahasiswa" placeholder="Masukkan nama mahasiswa" required><br><br>
+        
+        <!-- Jumlah Kehadiran -->
+        <label for="kehadiran">Jumlah Kehadiran:</label><br>
+        <input type="number" id="kehadiran" name="kehadiran" min="0" max="100" placeholder="Masukkan jumlah kehadiran (0-100)" required><br><br>
+        
+        <!-- Nilai Tugas -->
+        <label for="tugas">Nilai Tugas:</label><br>
+        <input type="number" id="tugas" name="tugas" min="0" max="100" placeholder="Masukkan nilai tugas (0-100)" required><br><br>
+        
+        <!-- Nilai Quiz -->
+        <label for="quiz">Nilai Quiz:</label><br>
+        <input type="number" id="quiz" name="quiz" min="0" max="100" placeholder="Masukkan nilai quiz (0-100)" required><br><br>
+        
+        <!-- Nilai UTS -->
+        <label for="uts">Nilai UTS:</label><br>
+        <input type="number" id="uts" name="uts" min="0" max="100" placeholder="Masukkan nilai UTS (0-100)" required><br><br>
+        
+        <!-- Nilai UAS -->
+        <label for="uas">Nilai UAS:</label><br>
+        <input type="number" id="uas" name="uas" min="0" max="100" placeholder="Masukkan nilai UAS (0-100)" required><br><br>
+        
+        <!-- Nilai Akhir -->
+        <label for="nilai_akhir">Nilai Akhir:</label><br>
+        <input type="number" id="nilai_akhir" name="nilai_akhir" min="0" max="100" placeholder="Masukkan nilai akhir (0-100)" required><br><br>
+        
+        <!-- Nilai Huruf -->
+        <label for="nilai_huruf">Nilai Huruf:</label><br>
+        <select id="nilai_huruf" name="nilai_huruf" required>
+            <option value="">Pilih nilai huruf</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+        </select><br><br>
+        
+        <!-- Tombol Submit -->
+        <button type="submit">Tambah Data Nilai</button>
+    </form>
+</body>
+</html>
